@@ -2,6 +2,7 @@ package sg.edu.nus.iss.ibfb4ssfassessment.model;
 
 import java.util.Date;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.validation.constraints.Email;
@@ -13,7 +14,7 @@ public class Login {
 
     @Email(message = "Not a valid email")
     @NotEmpty(message = "Please key in an email")
-    //@Max(value=500, message = "cannot exceed 50 characters")
+    @Length(max=50, message = "cannot exceed 50 characters")
     private String email;
 
     @Past(message = "Date of birth must be in the past")
